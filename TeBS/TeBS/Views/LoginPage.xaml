@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"  
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:local="clr-namespace:TeBS.CustomRenderers"
+             xmlns:appResources="clr-namespace:TeBS.Resources"
+             BackgroundColor="White"
+             x:Class="TeBS.Views.LoginPage">
+
+
+        <AbsoluteLayout Margin="0,70,0,0">
+            <Image Source="world_map" Margin="40,0,0,0" HorizontalOptions="Fill" HeightRequest="200" Aspect="Fill" />
+            <Label Text="Login" TextColor="#222222" FontAttributes="Bold" FontSize="22" Margin="0,70,0,0" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" />
+
+              <!-- iOS Stack-->
+           <StackLayout Margin="40,140,20,0" Spacing="20" AbsoluteLayout.LayoutBounds="0,0.5,1,1" AbsoluteLayout.LayoutFlags="All">
+
+          
+              <AbsoluteLayout
+                   Margin="0,0,20,0"
+                           AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All"
+                      
+              >
+
+                  <Frame BackgroundColor="#818181" Opacity="0.6" HasShadow="False"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All" CornerRadius="5">
+                 
+                  </Frame>
+                   <StackLayout HeightRequest="44" Orientation="Horizontal" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All">
+                          <Image Source="ic_user" Margin="20,5,0,0" VerticalOptions="Center" WidthRequest="24" HeightRequest="24" />
+                          <local:BorderLessEntry  Text="{Binding UserName}"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  HorizontalTextAlignment="Center"
+                                                  Placeholder="{x:Static appResources:AppResources.login_placeholder}"
+                                                  PlaceholderColor="White"
+                                                  TextColor="White"/>
+                      </StackLayout>
+                  
+             
+              </AbsoluteLayout>
+               <AbsoluteLayout
+                                       Margin="0,0,20,0"
+                                       AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                       AbsoluteLayout.LayoutFlags="All"
+                          >
+
+                                      <Frame BackgroundColor="#818181" Opacity="0.6" HasShadow="False"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                               AbsoluteLayout.LayoutFlags="All">
+                 
+                                      </Frame>
+                                       <StackLayout HeightRequest="44" Orientation="Horizontal" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                               AbsoluteLayout.LayoutFlags="All">
+                                              <Image Source="ic_password" Margin="20,5,0,0" VerticalOptions="Center" WidthRequest="24" HeightRequest="24" />
+                                              <local:BorderLessEntry VerticalOptions="Center"
+                                                                     Text="{Binding Password}"
+                                                                     HorizontalTextAlignment="Center"
+                                                                     IsPassword="True"
+                                                                     HorizontalOptions="FillAndExpand"
+                                                                     Placeholder="{x:Static appResources:AppResources.password_placeholder}"
+                                                                     PlaceholderColor="White"
+                                                                     TextColor="White"/>
+
+                                          </StackLayout>
+                             
+               
+             </AbsoluteLayout>
+
+
+               <Button  Command="{Binding LoginCommand}"  BackgroundColor="DarkOrange" HeightRequest="38" CornerRadius="20" Margin="40,0" TextColor="White" FontSize="16" Text="Login"/>
+            
+                 <StackLayout.IsVisible>
+                                                   <OnPlatform x:TypeArguments="x:Boolean"
+                                                              iOS="True"
+                                                              Android="False"/>
+                                        </StackLayout.IsVisible>
+                </StackLayout>
+
+             <!--Android Stack-->
+            <StackLayout   Margin="15,140,15,0"  Spacing="20" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                               AbsoluteLayout.LayoutFlags="All">
+
+           
+
+
+                     <AbsoluteLayout 
+                                               Margin="20,0,20,0"
+                                               AbsoluteLayout.LayoutBounds="0,0,1,0.29"
+                                               AbsoluteLayout.LayoutFlags="All"
+                                  >
+
+                                              <Frame BackgroundColor="#818181" CornerRadius="5" Opacity="0.6" HasShadow="False"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                       AbsoluteLayout.LayoutFlags="All">
+                 
+                                              </Frame>
+                                               <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                       AbsoluteLayout.LayoutFlags="All">
+                                                      <Image Source="ic_user" Margin="20,5,0,0" VerticalOptions="Center" WidthRequest="24" HeightRequest="24" />
+                                                      <local:BorderLessEntry VerticalOptions="Center"
+                                                                             Text="{Binding UserName}"
+                                                                             HorizontalTextAlignment="Center"
+                                                                             HorizontalOptions="FillAndExpand"
+                                                                             Placeholder="{x:Static appResources:AppResources.login_placeholder}"
+                                                                             PlaceholderColor="White" TextColor="White"/>
+
+                                                  </StackLayout>
+                                       
+               
+                     </AbsoluteLayout>
+
+                      <AbsoluteLayout 
+                                               Margin="20,0,20,0"
+                                               AbsoluteLayout.LayoutBounds="0,0,1,0.38"
+                                               AbsoluteLayout.LayoutFlags="All"
+                                  >
+
+                                              <Frame BackgroundColor="#818181" CornerRadius="5" Opacity="0.6" HasShadow="False"  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                       AbsoluteLayout.LayoutFlags="All">
+                 
+                                              </Frame>
+                                               <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                       AbsoluteLayout.LayoutFlags="All">
+                                                      <Image Source="ic_password" Margin="20,5,0,0" VerticalOptions="Center" WidthRequest="24" HeightRequest="24" />
+                                                      <local:BorderLessEntry VerticalOptions="Center"
+                                                                             Text="{Binding Password}"
+                                                                             IsPassword="True"
+                                                                             HorizontalTextAlignment="Center"
+                                                                             HorizontalOptions="FillAndExpand"
+                                                                             Placeholder="{x:Static appResources:AppResources.password_placeholder}"
+                                                                             PlaceholderColor="White"
+                                                                             TextColor="White"/>
+
+                                                  </StackLayout>
+                                     
+               
+                     </AbsoluteLayout>
+
+                    <Button  Command="{Binding LoginCommand}"  BackgroundColor="DarkOrange" HeightRequest="38" CornerRadius="20" Margin="40,0" TextColor="White" FontSize="16" Text="Login"/>
+
+                   <StackLayout.IsVisible>
+                                                   <OnPlatform x:TypeArguments="x:Boolean"
+                                                              iOS="False"
+                                                              Android="True"/>
+                                        </StackLayout.IsVisible>
+
+
+
+            </StackLayout>
+
+
+
+
+
+
+
+            <BoxView Color="DarkOrange" VerticalOptions="End" Margin="0,0,0,6" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" HeightRequest="6"/>
+            <BoxView Color="#00adef" VerticalOptions="End" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" HeightRequest="6"/>
+
+        </AbsoluteLayout>
+    
+
+</ContentPage>
